@@ -7,7 +7,16 @@
     <string name="password">password</string>
     <string name="sign_in">sign in</string>
     <string name="username">Username</string>
-    <string name="title">Title</string>
     <string name="your_thoughts">Your Thoughts..</string>
     <string name="signout">Signout</string>
+    <string name="background_image">background-image</string>
+    <string name="or">Or</string>
+    <string name="create_account">create account</string>
+    <string name="title">Title</string>
+    <string name="thoughts">Thoughts...</string>
+    <string name="date_created">Date created</string>
+    <string name="save">save</string>
+    <string name="today">Today</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
 </resources>

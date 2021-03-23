@@ -89,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                         assert user != null;
                         final String currentUserId=user.getUid();
 
+    //                    JournalApi journalApi=JournalApi.getInstance();
+    //                    journalApi.setUserID(currentUserId);
                         collectionReference.whereEqualTo("userId",currentUserId).addSnapshotListener(new EventListener<QuerySnapshot>() {
                             @Override
                             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -114,36 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                         });
-                    }
-//                    user=firebaseAuth.getCurrentUser();
-//                    assert user != null;
-//                    final String currentUserId=user.getUid();
-//
-//                    collectionReference.whereEqualTo("userId",currentUserId).addSnapshotListener(new EventListener<QuerySnapshot>() {
-//                        @Override
-//                        public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-//                            if(error !=null){
-//                             // it means no error
-//                                progressBar.setVisibility(View.INVISIBLE);
-//                                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
-//                            }
-//                            assert value != null;
-//                            if (!value.isEmpty()){
-//
-//                                for (QueryDocumentSnapshot snapshot:value){
-//                                    JournalApi journalApi=JournalApi.getInstance();
-//                                    journalApi.setUsername(snapshot.getString("username"));
-//                                    journalApi.setUserID(currentUserId);
-//
-//                                    // go to listactivity
-//                                    startActivity(new Intent(LoginActivity.this,JournalListActivity.class));
-//                                    progressBar.setVisibility(View.INVISIBLE);
-//
-//                                }
-//                            }
-//
-//                        }
-//                    });
+                   }
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

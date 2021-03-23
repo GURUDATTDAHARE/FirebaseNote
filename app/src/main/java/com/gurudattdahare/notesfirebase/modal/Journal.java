@@ -9,6 +9,15 @@ public class Journal {
     private String userId;
     private Timestamp timeAdded;
     private String username;
+    private long imageUploadTime;
+
+    public long getImageUploadTime() {
+        return imageUploadTime;
+    }
+
+    public void setImageUploadTime(long imageUploadTime) {
+        this.imageUploadTime = imageUploadTime;
+    }
 
     public Journal() {
     }

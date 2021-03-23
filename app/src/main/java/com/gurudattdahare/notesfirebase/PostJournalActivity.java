@@ -56,7 +56,7 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
 
     private CollectionReference collectionReference=db.collection("Journal");
     private Uri imageUri;
-
+    private long uploadtime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,9 +137,9 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
          final String title=postTitle.getText().toString().trim();
          final String thoughts=postThought.getText().toString().trim();
         if (!TextUtils.isEmpty(title)&& !TextUtils.isEmpty(thoughts)&& imageUri !=null){
-
+            uploadtime=Timestamp.now().getSeconds();
              final StorageReference filepath=storageReference.child("journal_images")
-                    .child("my_image_"+ Timestamp.now().getSeconds());
+                    .child("my_image_"+JournalApi.getInstance().getUserID()+"_"+uploadtime);
                   filepath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                       @Override
                       public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -156,6 +156,7 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
                                   journal.setUsername(currentUsername);
                                   journal.setUserId(currentUserId);
                                   journal.setThoughts(thoughts);
+                                  journal.setImageUploadTime(uploadtime);
                                   //Todo:invoke our collectionReference
                                   collectionReference.add(journal).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                       @Override

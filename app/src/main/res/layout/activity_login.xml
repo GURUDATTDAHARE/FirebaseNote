@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Or"
+            android:text="@string/or"
             android:textStyle="bold"
             android:textSize="20sp"
             android:gravity="center_horizontal"
@@ -62,7 +62,7 @@
             android:id="@+id/create_acct_button"
             android:background="@android:color/transparent"
             android:textColor="#EE0030"
-            android:text="create account"
+            android:text="@string/create_account"
             />
 
     </LinearLayout>

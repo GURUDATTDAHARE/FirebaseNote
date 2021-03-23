@@ -25,7 +25,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 import com.gurudattdahare.notesfirebase.util.JournalApi;
 
 import java.util.HashMap;
@@ -79,7 +78,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                String email= emailview.getText().toString().trim();
                String password=passwordview.getText().toString().trim();
                String username=usernameview.getText().toString().trim();
-                Log.d("guru","hi "+email+" "+password+" "+username);
+  //              Log.d("guru","hi "+email+" "+password+" "+username);
 
                 createUserEmailAccount(email,password,username);
             }
@@ -128,7 +127,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-
+                                      Log.d("alok","erroe: "+e.getMessage());
                             }
                         });
 
@@ -151,7 +150,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        //user=firebaseAuth.getCurrentUser();
-       // firebaseAuth.addAuthStateListener(authStateListener);
+        user=firebaseAuth.getCurrentUser();
+        firebaseAuth.addAuthStateListener(authStateListener);
     }
 }
